@@ -9,6 +9,7 @@ from . import sge
 from . import yarn
 from . import mesos
 from . import kubernetes
+from . import slurm
 
 def config_logger(args):
     """Configure the logger according to the arguments
@@ -44,6 +45,8 @@ def main():
         local.submit(args)
     elif args.cluster == 'sge':
         sge.submit(args)
+    elif args.cluster == 'slurm':
+        slurm.submit(args)
     elif args.cluster == 'yarn':
         yarn.submit(args)
     elif args.cluster == 'mpi':
